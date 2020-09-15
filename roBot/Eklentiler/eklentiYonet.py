@@ -44,7 +44,6 @@ async def eklenti_ver(client, message):
         yanitlanacak_mesaj = cevaplanan_mesaj.message_id
     
     ilk_mesaj = await message.edit("__Bekleyin..__",
-        reply_to_message_id         = yanitlanacak_mesaj,
         disable_web_page_preview    = True,
         parse_mode                  = "Markdown"
     )
