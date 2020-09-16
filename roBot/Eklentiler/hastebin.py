@@ -7,8 +7,8 @@ import os
 
 from roBot._edevat import logYolla
 
-@Client.on_message(filters.command(['pastever'], ['!','.','/']) & filters.me)
-async def pastever(client, message):
+@Client.on_message(filters.command(['hastever'], ['!','.','/']) & filters.me)
+async def hastever(client, message):
     # < Başlangıç    
     cevaplanan_mesaj    = message.reply_to_message
     if cevaplanan_mesaj is None:
@@ -72,8 +72,8 @@ async def pastever(client, message):
                   reply_to_message_id       = yanitlanacak_mesaj
                   )
 
-@Client.on_message(filters.command(['pasteal'], ['!','.','/']) & filters.me)
-async def pasteal(client, message):
+@Client.on_message(filters.command(['hasteal'], ['!','.','/']) & filters.me)
+async def hasteal(client, message):
     # < Başlangıç    
     cevaplanan_mesaj    = message.reply_to_message
     if cevaplanan_mesaj is None:
@@ -95,8 +95,7 @@ async def pasteal(client, message):
         return
     
     kod = cevaplanan_mesaj.text.split('/')[-1]
-    uzanti = kod.split('.')[1]
-    raw = 'https://hastebin.com/raw/' + kod.split('.')[0]
+    raw = 'https://hastebin.com/raw/' + kod
     
     try:
         data = requests.get(raw).content
@@ -122,15 +121,15 @@ from pathlib import Path
 
 DESTEK_KOMUT.update({
     Path(__file__).stem : {
-        "komut"        : "paste-ver/al",
+        "komut"        : "haste-ver/al",
         "aciklama"     : "hastebin.com ile entegreli paste hizmeti..\nkodu paste yapar, paste linkini betiğe çevirir",
         "parametreler" : [
             None
             ],
         "ornekler"     : [
-            ".pastever py | yanıtlanan kod",
-            ".pastever go | yanıtlanan dosya",
-            ".pasteal c | yanıtlanan hastebin linki"
+            ".nekover py | yanıtlanan kod",
+            ".nekover go | yanıtlanan dosya",
+            ".nekoal | yanıtlanan hastebin linki"
             ]
     }
 })
